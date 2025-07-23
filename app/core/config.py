@@ -7,5 +7,11 @@ class Settings(BaseSettings):
     DB_NAME=os.getenv('DB_NAME', 'db_name')
     DB_USERNAME=os.getenv('DB_USERNAME', 'user_name')
 
+    SECRET_KEY: str = "this-is-super-secret-key"
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
+    ALGORITHM: str = "HS256"
+
     class Config:
         env_file = ".env"
+
+settings = Settings()
